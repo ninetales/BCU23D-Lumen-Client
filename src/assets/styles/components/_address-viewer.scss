@@ -1,0 +1,13 @@
+.address-viewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    background-color: #007eff;
+    color: #fff;
+
+    ul {
+        display: flex;
+        gap: 10px;
+    }
+}

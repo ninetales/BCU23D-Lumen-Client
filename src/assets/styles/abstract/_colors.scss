@@ -1,0 +1,16 @@
+// Slightly lighten a color
+@function tint($color, $percentage) {
+    @return mix(#fff, $color, $percentage);
+}
+
+// Slightly darken a color
+@function shade($color, $percentage) {
+    @return mix(#000, $color, $percentage);
+}
+
+
+$primaryColor: #bb008c;
+$accentColor: #550273;
+$textColor: #333;
+$errorTextColor: #ca0101;
+$heroBannerOverlay: rgba(134, 0, 0, 0.37);
