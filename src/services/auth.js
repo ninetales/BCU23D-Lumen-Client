@@ -8,9 +8,8 @@ export default class Auth {
         TokenHandler.setUserToken({ token: data.token });
     }
 
-    static async register({ email, password }) {
-        console.log('register', email);
-        //todo: register user
+    static async register({ name, email, password }) {
+        return await HTTP.add({ endpoint: '/auth/register/', data: { name, email, password } });
     }
 
     static async user() {

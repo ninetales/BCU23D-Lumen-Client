@@ -3,9 +3,23 @@ import TokenHandler from './TokenHandler';
 
 export default class HTTP {
 
+    /**
+     * @desc Add data
+     * @param {*} param0 
+     * @returns 
+     */
     static add = async ({ endpoint, data }) => {
 
         const url = `${SETTINGS.API_URL}${endpoint}`;
+        const token = TokenHandler.getUserToken();
+        const headers = {
+            'Content-Type': 'application/json',
+        };
+
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        };
+
         console.log('the url is', url);
         console.log('the data is', data);
 
@@ -13,10 +27,7 @@ export default class HTTP {
 
             const response = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${TokenHandler.getUserToken()}`
-                },
+                headers,
                 body: JSON.stringify(data)
             });
 
@@ -30,17 +41,27 @@ export default class HTTP {
 
     }
 
+    /**
+     * @desc Fetch data
+     * @param {*} param0 
+     * @returns 
+     */
     static get = async ({ endpoint }) => {
 
         const url = `${SETTINGS.API_URL}${endpoint}`;
+        const token = TokenHandler.getUserToken();
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
 
         try {
             const response = await fetch(url, {
                 method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${TokenHandler.getUserToken()}`
-                }
+                headers
             });
             if (response.ok) {
                 return await response.json();

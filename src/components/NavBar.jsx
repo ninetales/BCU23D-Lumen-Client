@@ -21,6 +21,9 @@ export const NavBar = () => {
       <li>
         <a href="/mempool">MemPool</a>
       </li>
+      <li>
+        <a href="/register">Register</a>
+      </li>
     </ul>
   );
 };
