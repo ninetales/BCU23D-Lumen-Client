@@ -1,5 +1,11 @@
 import React from 'react';
+import { Transfer } from '../components/Transfer';
 
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <h1>Home</h1>
+      <Transfer />
+    </>
+  );
 };

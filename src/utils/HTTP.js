@@ -14,7 +14,8 @@ export default class HTTP {
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${TokenHandler.getUserToken()}`
                 },
                 body: JSON.stringify(data)
             });
@@ -29,7 +30,10 @@ export default class HTTP {
 
     }
 
-    static get = async ({ url }) => {
+    static get = async ({ endpoint }) => {
+
+        const url = `${SETTINGS.API_URL}${endpoint}`;
+
         try {
             const response = await fetch(url, {
                 method: 'GET',

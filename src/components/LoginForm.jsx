@@ -1,5 +1,5 @@
 import React from 'react';
-import Auth from '../services/auth';
+import Auth from '../services/auth.js';
 
 export const LoginForm = () => {
   const formHandler = (e) => {

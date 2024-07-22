@@ -4,6 +4,9 @@ import { NotFound } from './pages/NotFound';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Wallet } from './pages/Wallet';
+import { Explorer } from './pages/Explorer';
+import { Miner } from './pages/Miner';
+import { MemPool } from './pages/MemPool';
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +17,9 @@ export const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: '/login', element: <Login /> },
       { path: '/wallet', element: <Wallet /> },
+      { path: '/explorer', element: <Explorer /> },
+      { path: '/miner', element: <Miner /> },
+      { path: '/mempool', element: <MemPool /> },
     ],
   },
 ]);

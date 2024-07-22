@@ -12,6 +12,15 @@ export const NavBar = () => {
       <li>
         <a href="/wallet">Wallet</a>
       </li>
+      <li>
+        <a href="/explorer">Explorer</a>
+      </li>
+      <li>
+        <a href="/miner">Miner</a>
+      </li>
+      <li>
+        <a href="/mempool">MemPool</a>
+      </li>
     </ul>
   );
 };
