@@ -11,14 +11,6 @@ export default class HTTP {
     static add = async ({ endpoint, data }) => {
 
         const url = `${SETTINGS.API_URL}${endpoint}`;
-        const token = TokenHandler.getUserToken();
-        const headers = {
-            'Content-Type': 'application/json',
-        };
-
-        if (token) {
-            headers['Authorization'] = `Bearer ${token}`;
-        };
 
         console.log('the url is', url);
         console.log('the data is', data);
@@ -27,16 +19,19 @@ export default class HTTP {
 
             const response = await fetch(url, {
                 method: 'POST',
-                headers,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${TokenHandler.getUserToken()}`,
+                },
                 body: JSON.stringify(data)
             });
 
             if (response.ok) {
                 return await response.json();
-            }
+            };
 
         } catch (error) {
-            throw new Error(`Error adding data: ${response.status} - ${response.statusText}`);
+            throw new Error(`Error adding data: ${error.status} - ${error.statusText}`);
         }
 
     }
@@ -49,26 +44,21 @@ export default class HTTP {
     static get = async ({ endpoint }) => {
 
         const url = `${SETTINGS.API_URL}${endpoint}`;
-        const token = TokenHandler.getUserToken();
-        const headers = {
-            'Content-Type': 'application/json'
-        };
-
-        if (token) {
-            headers['Authorization'] = `Bearer ${token}`;
-        }
 
         try {
             const response = await fetch(url, {
                 method: 'GET',
-                headers
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${TokenHandler.getUserToken()}`,
+                }
             });
             if (response.ok) {
                 return await response.json();
             }
 
         } catch (error) {
-            throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+            throw new Error(`Error fetching data: ${error.status} - ${error.statusText}`);
         }
     }
 

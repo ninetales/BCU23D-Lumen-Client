@@ -3,7 +3,9 @@ import HTTP from "../utils/HTTP";
 export default class Ledger {
 
     static async get() {
-        return await HTTP.get({ endpoint: '/ledger/' });
+        const data = await HTTP.get({ endpoint: '/ledger/' });
+        console.log('the data is', data);
+        return data;
     }
 
 }

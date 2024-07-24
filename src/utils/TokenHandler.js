@@ -20,4 +20,11 @@ export default class TokenHandler {
         return token ? token[1] : null;
     }
 
+    /**
+     * @desc Clear the user token from the cookie
+     */
+    static clearUserToken() {
+        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
+
 }
