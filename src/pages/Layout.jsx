@@ -6,17 +6,16 @@ export const Layout = () => {
   return (
     <>
       <AddressViewer />
-      <header>
-        <h2>Header</h2>
-        <NavBar />
-      </header>
-      <main>
-        <h2>Body</h2>
-        <Outlet />
-      </main>
-      <footer>
-        <h2>Footer</h2>
-      </footer>
+      <div className="page">
+        <div className="app">
+          <nav className="card">
+            <NavBar />
+          </nav>
+          <main>
+            <Outlet />
+          </main>
+        </div>
+      </div>
     </>
   );
 };

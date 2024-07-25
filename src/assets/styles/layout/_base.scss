@@ -1,4 +1,38 @@
+html,
+body,
+#root {
+    height: 100%;
+}
+
 html {
     background-color: $pageColor;
     font-family: $fontPrimary;
+}
+
+body {
+    font-size: pxToRem($primaryFontSize);
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+main {
+    max-width: 400px;
+}
+
+.app {
+    min-width: 1000px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
 }

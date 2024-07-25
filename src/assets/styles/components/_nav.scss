@@ -1,0 +1,23 @@
+nav {
+    border-radius: 15px;
+    background-color: #fff;
+    padding: 20px;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 100%;
+
+        li {
+            display: grid;
+            height: 40px;
+            line-height: 40px;
+
+            a {
+                text-decoration: none;
+                color: $primaryColor;
+            }
+        }
+    }
+}

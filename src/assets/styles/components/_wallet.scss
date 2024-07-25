@@ -1,0 +1,41 @@
+.wallet {
+    max-width: 400px;
+
+    &__balance-card {
+        min-height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+        border-radius: 10px;
+
+        &::before {
+            content: "";
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    &__info-text {
+        font-size: pxToRem(20);
+        color: #fff;
+        z-index: 1;
+    }
+
+    &__balance {
+        font-size: pxToRem(30);
+        color: #fff;
+        z-index: 1;
+    }
+}

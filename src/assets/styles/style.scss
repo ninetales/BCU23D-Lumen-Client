@@ -1,10 +1,18 @@
 @import './vendor/reset.scss';
 @import './vendor/normalize.scss';
 
+@import './abstract/variables.scss';
+
 @import './abstract/colors.scss';
 @import './abstract/typography.scss';
 
 @import './components/address-viewer.scss';
 @import './components/block.scss';
+@import './components/wallet.scss';
+@import './components/forms.scss';
+@import './components/transfer.scss';
+@import './components/card.scss';
+@import './components/nav.scss';
+@import './components/register.scss';
 
 @import './layout/base.scss';

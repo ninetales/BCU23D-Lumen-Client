@@ -4,8 +4,10 @@ import { RegisterForm } from '../components/RegisterForm';
 export const Register = () => {
   return (
     <>
-      <h1>Register Form</h1>
-      <RegisterForm />
+      <div className="content">
+        <h3>Register</h3>
+        <RegisterForm />
+      </div>
     </>
   );
 };

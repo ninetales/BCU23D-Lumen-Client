@@ -14,11 +14,13 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={(e) => formHandler(e)}>
-      <input type="text" name="name" placeholder="Name" />
-      <input type="text" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
-      <button>Register</button>
-    </form>
+    <div className="card card-space">
+      <form onSubmit={(e) => formHandler(e)}>
+        <input type="text" name="name" placeholder="Name" />
+        <input type="text" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Password" />
+        <button>Register</button>
+      </form>
+    </div>
   );
 };
