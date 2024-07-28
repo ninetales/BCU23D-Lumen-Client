@@ -16,9 +16,18 @@ export const RegisterForm = () => {
   return (
     <div className="card card-space">
       <form onSubmit={(e) => formHandler(e)}>
-        <input type="text" name="name" placeholder="Name" />
-        <input type="text" name="email" placeholder="Email" />
-        <input type="password" name="password" placeholder="Password" />
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="text" name="email" />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password" />
+        </label>
         <button>Register</button>
       </form>
     </div>

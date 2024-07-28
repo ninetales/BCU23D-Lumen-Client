@@ -55,6 +55,9 @@ export default class HTTP {
             });
             if (response.ok) {
                 return await response.json();
+            } else {
+                const errorData = await response.json();
+                throw new Error(`Error fetching data: ${response.status} - ${errorData.message}`);
             }
 
         } catch (error) {

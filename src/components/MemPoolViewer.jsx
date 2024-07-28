@@ -2,18 +2,53 @@ import React, { useEffect, useState } from 'react';
 import Wallet from '../services/wallet.js';
 
 export const MemPoolViewer = () => {
-  const [transactions, setTransactions] = useState([]);
+  const [list, setList] = useState([]);
 
   useEffect(() => {
     (async () => {
-      setTransactions(await Wallet.transactions());
+      const response = Object.entries(await Wallet.transactions());
+      const memPool = response.map(([, data]) => data);
+
+      const transfers = memPool.flatMap((transactionData) => {
+        delete transactionData.outputMap[transactionData.inputMap.address];
+        const sender = transactionData.inputMap.address;
+        const timestamp = transactionData.inputMap.timestamp;
+
+        return Object.entries(transactionData.outputMap).map(
+          ([recipient, amount]) => ({ sender, recipient, amount, timestamp })
+        );
+      });
+
+      setList([...list, ...transfers]);
     })();
   }, []);
 
   return (
     <>
-      <h1>transactions</h1>
-      {console.log(transactions)}
+      {list &&
+        list.map((transfer, index) => {
+          const timestamp = new Date(transfer.timestamp);
+          return (
+            <li key={index}>
+              <div>
+                <span>Sender:</span>
+                <span>{transfer.sender}</span>
+              </div>
+              <div>
+                <span>Recipient:</span>
+                <span>{transfer.recipient}</span>
+              </div>
+              <div>
+                <span>Amount:</span>
+                <span>{transfer.amount}</span>
+              </div>
+              <div>
+                <span>Timestamp:</span>
+                <span>{timestamp.toUTCString()}</span>
+              </div>
+            </li>
+          );
+        })}
     </>
   );
 };

@@ -5,7 +5,8 @@ export default class Auth {
 
     static async login({ email, password }) {
         const data = await HTTP.add({ endpoint: '/auth/login/', data: { email, password } });
-        TokenHandler.setUserToken({ token: data.token });
+        data && TokenHandler.setUserToken({ token: data.token });
+        return data;
     }
 
     static async register({ name, email, password }) {
