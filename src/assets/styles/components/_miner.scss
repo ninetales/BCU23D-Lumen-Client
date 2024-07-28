@@ -1,0 +1,13 @@
+.mine {
+    &-message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        background-color: #f5ecff;
+        color: #845aaa;
+        border-radius: 10px;
+    }
+
+    &-button {}
+}
