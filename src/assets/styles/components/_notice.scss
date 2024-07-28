@@ -1,0 +1,13 @@
+.notice {
+    display: flex;
+    padding: 10px;
+    font-size: pxToRem(12);
+    border-radius: 5px;
+    margin-top: 5px;
+
+    &.warning {
+        background-color: #fff3f2;
+        box-shadow: inset 0px 0px 0px 1px #ffdbd8;
+        color: #F44336;
+    }
+}

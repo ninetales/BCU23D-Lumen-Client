@@ -1,22 +1,26 @@
 import React from 'react';
 import Wallet from '../services/wallet.js';
+import validateForm from '../utils/ValidateForm.js';
 
 export const Transfer = () => {
-  const [response, setResponse] = React.useState({});
+  // const [response, setResponse] = React.useState({});
 
   const formHandler = (e) => {
     e.preventDefault();
-    const formData = Object.fromEntries(new FormData(e.target));
+    const form = e.target;
+    const formData = Object.fromEntries(new FormData(form));
 
-    if (!formData.recipient || !formData.amount) {
-      return;
-    }
+    if (!validateForm(formData)) return;
 
     (async () => {
       const response = await Wallet.transfer({
         recipient: formData.recipient,
         amount: formData.amount,
       });
+
+      if (response.success) {
+        form.reset();
+      }
     })();
   };
 
@@ -25,13 +29,14 @@ export const Transfer = () => {
       <div className="transfer card card-space">
         <span>Transfer funds</span>
         <form action="" onSubmit={(e) => formHandler(e)}>
-          <input
-            type="text"
-            name="recipient"
-            placeholder="Recipient address"
-            required
-          />
-          <input type="text" name="amount" placeholder="Amount" required />
+          <label>
+            <span>Recipient address</span>
+            <input type="text" name="recipient" />
+          </label>
+          <label>
+            <span>Amount</span>
+            <input type="text" name="amount" />
+          </label>
           <button>Transfer money</button>
         </form>
       </div>
