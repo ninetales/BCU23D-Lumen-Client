@@ -14,9 +14,6 @@ body {
 }
 
 .page {
-    display: flex;
-    justify-content: center;
-    // align-items: center;
     height: 100%;
 }
 
@@ -32,9 +29,12 @@ main {
 }
 
 .app {
+    margin-top: 100px;
     min-width: 800px;
     max-width: 1000px;
     display: grid;
     grid-template-columns: 300px 1fr;
     gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -1,16 +1,28 @@
 import React from 'react';
 import Auth from '../services/auth';
+import validateForm from '../utils/ValidateForm.js';
+import formNotice from '../utils/FormNotice.js';
 
 export const RegisterForm = () => {
-  const formHandler = (e) => {
+  const formHandler = async (e) => {
     e.preventDefault();
-    const formData = Object.fromEntries(new FormData(e.target));
-    Auth.register({
+    const form = e.target;
+    const formData = Object.fromEntries(new FormData(form));
+
+    if (!validateForm(formData)) return;
+
+    const response = await Auth.register({
       name: formData.name,
       email: formData.email,
       password: formData.password,
     });
-    console.log('Register form submitted');
+
+    if (response.success) {
+      form.reset();
+      formNotice({ form, message: 'Registration successful', type: 'success' });
+    }
+
+    console.log('Register form submitted', response);
   };
 
   return (

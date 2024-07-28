@@ -18,15 +18,18 @@ export const BlockMiner = () => {
 
   const mineBlock = async (e) => {
     e.preventDefault();
-    Block.mine();
+    const response = await Block.mine();
+    response.success && window.location.reload();
   };
 
   return (
     <>
       {transactions.length > 0 ? (
-        <button onClick={(e) => mineBlock(e)}>Mine Block</button>
+        <button onClick={(e) => mineBlock(e)} className="mine-button">
+          Mine Block
+        </button>
       ) : (
-        <div class="mine-message">
+        <div class="page-message">
           <span>There are no transactions to mine.</span>
         </div>
       )}

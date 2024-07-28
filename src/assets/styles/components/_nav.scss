@@ -2,6 +2,10 @@ nav {
     border-radius: 15px;
     background-color: #fff;
     padding: 20px;
+    min-height: 300px;
+    height: fit-content;
+    display: grid;
+    grid-template-rows: 1fr auto;
 
     ul {
         display: flex;
@@ -16,8 +20,25 @@ nav {
 
             a {
                 text-decoration: none;
-                color: $primaryColor;
+                color: $textColor;
             }
         }
+
+        &:last-child {
+            margin-top: 50px;
+        }
+    }
+
+    .action-btn {
+        border: 1px solid #eee;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0 10px;
+    }
+
+    .logout {
+        background-color: white;
+        border-color: #a30000;
+        color: #a30000;
     }
 }

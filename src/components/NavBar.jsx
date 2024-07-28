@@ -36,6 +36,7 @@ export const NavBar = () => {
                 TokenHandler.clearUserToken();
                 navigate('/');
               }}
+              className="action-btn logout"
             >
               Logout
             </button>
@@ -43,10 +44,14 @@ export const NavBar = () => {
         ) : (
           <>
             <li>
-              <a href="/login">Login</a>
+              <a href="/login" className="action-btn">
+                Login
+              </a>
             </li>
             <li>
-              <a href="/register">Register</a>
+              <a href="/register" className="action-btn">
+                Register
+              </a>
             </li>
           </>
         )}
