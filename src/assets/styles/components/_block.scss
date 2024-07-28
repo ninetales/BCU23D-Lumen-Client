@@ -1,5 +1,5 @@
 .ledgerViewer {
-    max-width: 400px;
+    // max-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -11,10 +11,9 @@
     border-radius: 10px;
     background-color: $cardColor;
     box-shadow: 0px 16px 15px -10px rgba(105, 96, 215, 0.0944602);
-    font-size: pxToRem(14);
+
 
     &__header {
-        font-size: pxToRem(14);
         cursor: pointer;
         padding: 20px;
     }
@@ -26,32 +25,71 @@
         font-weight: 500;
     }
 
-    &__body {}
-
     &__details {
-        padding: 15px;
+        ul {
+            padding: 20px;
+            background-color: #f5f6fd;
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    &__section-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     &__list {
-        padding: 15px;
-        background-color: #f5f6fd;
         border-radius: 5px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
 
-        li span:first-child {
+        >li span:first-child {
             font-weight: 500;
         }
 
-        li {
+        >li {
             display: flex;
             flex-direction: column;
+            gap: 5px;
 
             span {
                 word-break: break-all;
             }
         }
+    }
+
+
+
+    &__transaction {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &-data {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            padding: 15px;
+            background-color: #f5f6fd;
+            border-radius: 5px;
+
+            >li {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+
     }
 
 }
