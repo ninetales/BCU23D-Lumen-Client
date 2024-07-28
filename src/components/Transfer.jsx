@@ -1,6 +1,7 @@
 import React from 'react';
 import Wallet from '../services/wallet.js';
 import validateForm from '../utils/ValidateForm.js';
+import formNotice from '../utils/FormNotice.js';
 
 export const Transfer = () => {
   // const [response, setResponse] = React.useState({});
@@ -20,6 +21,11 @@ export const Transfer = () => {
 
       if (response.success) {
         form.reset();
+        formNotice({
+          form,
+          message: 'Transfer successful',
+          type: 'success',
+        });
       }
     })();
   };
