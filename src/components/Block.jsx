@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import transactionHandler from '../utils/transactionHandler';
+import transactionHandler from '../utils/TransactionHandler';
 
 export const Block = ({ block }) => {
   const timestamp = new Date(block.timestamp);
