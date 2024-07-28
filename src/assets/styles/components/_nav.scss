@@ -21,6 +21,27 @@ nav {
             a {
                 text-decoration: none;
                 color: $textColor;
+                position: relative;
+
+                &.active {
+                    padding-left: 15px;
+                }
+
+                &.active::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 5px;
+                    height: 100%;
+                    background-color: $primaryColor;
+                    border-radius: 3px;
+                    max-height: 30px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
             }
         }
 

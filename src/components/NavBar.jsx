@@ -1,6 +1,7 @@
 import React from 'react';
 import TokenHandler from '../utils/TokenHandler';
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const NavBar = () => {
   const navigate = useNavigate();
@@ -8,22 +9,22 @@ export const NavBar = () => {
     <>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <NavLink to="/">Home</NavLink>
         </li>
 
         {TokenHandler.getUserToken() && (
           <>
             <li>
-              <a href="/wallet">Wallet</a>
+              <NavLink to="/wallet">Wallet</NavLink>
             </li>
             <li>
-              <a href="/explorer">Explorer</a>
+              <NavLink to="/explorer">Explorer</NavLink>
             </li>
             <li>
-              <a href="/miner">Miner</a>
+              <NavLink to="/miner">Miner</NavLink>
             </li>
             <li>
-              <a href="/mempool">MemPool</a>
+              <NavLink to="/mempool">MemPool</NavLink>
             </li>
           </>
         )}
@@ -44,14 +45,14 @@ export const NavBar = () => {
         ) : (
           <>
             <li>
-              <a href="/login" className="action-btn">
+              <NavLink to="/login" className="action-btn">
                 Login
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="/register" className="action-btn">
+              <NavLink to="/register" className="action-btn">
                 Register
-              </a>
+              </NavLink>
             </li>
           </>
         )}
