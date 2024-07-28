@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Wallet from '../services/wallet.js';
+import transactionHandler from '../utils/transactionHandler.js';
 
 export const MemPoolViewer = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const response = Object.entries(await Wallet.transactions());
-      const memPool = response.map(([, data]) => data);
+      const response = Object.entries(await Wallet.transactions()).map(
+        ([, data]) => data
+      );
 
-      const transfers = memPool.flatMap((transactionData) => {
-        delete transactionData.outputMap[transactionData.inputMap.address];
-        const sender = transactionData.inputMap.address;
-        const timestamp = transactionData.inputMap.timestamp;
-
-        return Object.entries(transactionData.outputMap).map(
-          ([recipient, amount]) => ({ sender, recipient, amount, timestamp })
-        );
-      });
-
-      setList([...list, ...transfers]);
+      setList(transactionHandler({ transactions: response }));
     })();
   }, []);
 

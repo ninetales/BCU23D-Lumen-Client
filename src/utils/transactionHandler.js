@@ -3,7 +3,7 @@
  * @return {Array} transactions
  */
 const transactionHandler = ({ transactions }) => {
-
+    console.log('transactions handler handling', transactions)
     return transactions.flatMap((transaction) => {
         delete transaction.outputMap[transaction.inputMap.address];
         const sender = transaction.inputMap.address;

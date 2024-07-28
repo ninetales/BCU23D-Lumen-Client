@@ -1,15 +1,24 @@
 .mempool {
     ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
         li {
             padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 10px;
+            background-color: $transactionRegularColor;
 
             div {
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
+
+                span:first-child {
+                    font-weight: 500;
+                }
 
                 span {
                     word-break: break-all;
