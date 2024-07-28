@@ -25,6 +25,15 @@
         font-weight: 500;
     }
 
+    &__body {
+        height: 0;
+        overflow: hidden;
+
+        &.toggled {
+            height: auto;
+        }
+    }
+
     &__details {
         ul {
             padding: 20px;
@@ -73,14 +82,14 @@
         flex-direction: column;
         gap: 20px;
 
+        padding: 20px;
+        background-color: #f5f6fd;
+        border-radius: 5px;
+
         &-data {
             display: flex;
             flex-direction: column;
             gap: 20px;
-
-            padding: 15px;
-            background-color: #f5f6fd;
-            border-radius: 5px;
 
             >li {
                 display: flex;
@@ -89,6 +98,13 @@
             }
         }
 
+        &-reward {
+            background-color: $transactionRewardColor;
+        }
+
+        &-regular {
+            background-color: $transactionRegularColor;
+        }
 
     }
 
