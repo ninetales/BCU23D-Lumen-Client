@@ -47,6 +47,10 @@
         li {
             display: flex;
             flex-direction: column;
+
+            span {
+                word-break: break-all;
+            }
         }
     }
 

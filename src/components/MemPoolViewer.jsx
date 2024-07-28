@@ -25,30 +25,34 @@ export const MemPoolViewer = () => {
 
   return (
     <>
-      {list &&
-        list.map((transfer, index) => {
-          const timestamp = new Date(transfer.timestamp);
-          return (
-            <li key={index}>
-              <div>
-                <span>Sender:</span>
-                <span>{transfer.sender}</span>
-              </div>
-              <div>
-                <span>Recipient:</span>
-                <span>{transfer.recipient}</span>
-              </div>
-              <div>
-                <span>Amount:</span>
-                <span>{transfer.amount}</span>
-              </div>
-              <div>
-                <span>Timestamp:</span>
-                <span>{timestamp.toUTCString()}</span>
-              </div>
-            </li>
-          );
-        })}
+      <div className="mempool">
+        <ul>
+          {list &&
+            list.map((transfer, index) => {
+              const timestamp = new Date(transfer.timestamp);
+              return (
+                <li key={index} className="card">
+                  <div>
+                    <span>Sender:</span>
+                    <span>{transfer.sender}</span>
+                  </div>
+                  <div>
+                    <span>Recipient:</span>
+                    <span>{transfer.recipient}</span>
+                  </div>
+                  <div>
+                    <span>Amount:</span>
+                    <span>{transfer.amount}</span>
+                  </div>
+                  <div>
+                    <span>Timestamp:</span>
+                    <span>{timestamp.toUTCString()}</span>
+                  </div>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
     </>
   );
 };

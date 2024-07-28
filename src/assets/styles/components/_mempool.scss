@@ -1,0 +1,20 @@
+.mempool {
+    ul {
+        li {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                span {
+                    word-break: break-all;
+                }
+            }
+        }
+    }
+}

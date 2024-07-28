@@ -15,8 +15,8 @@ body {
 
 .page {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
     height: 100%;
 }
 
@@ -27,11 +27,13 @@ body {
 }
 
 main {
-    max-width: 400px;
+    // max-width: 400px;
+
 }
 
 .app {
-    min-width: 1000px;
+    min-width: 800px;
+    max-width: 1000px;
     display: grid;
     grid-template-columns: 300px 1fr;
     gap: 20px;
