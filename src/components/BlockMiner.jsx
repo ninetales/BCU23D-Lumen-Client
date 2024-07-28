@@ -25,7 +25,7 @@ export const BlockMiner = () => {
   return (
     <>
       {transactions.length > 0 ? (
-        <button onClick={(e) => mineBlock(e)} className="mine-button">
+        <button onClick={(e) => mineBlock(e)} className="cta">
           Mine Block
         </button>
       ) : (
