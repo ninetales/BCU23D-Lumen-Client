@@ -23,6 +23,7 @@ export const WalletViewer = () => {
         <div className="wallet__balance-card">
           <span className="wallet__info-text">Balance</span>
           <span className="wallet__balance">LM {user.wallet?.balance}</span>
+          <img src="/assets/images/wallpaper-1.gif" alt="" />
         </div>
       </div>
 
