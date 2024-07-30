@@ -21,6 +21,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    &__title {
+        margin: 0;
+    }
 }
 
 main {

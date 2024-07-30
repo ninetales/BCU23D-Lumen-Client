@@ -4,8 +4,10 @@ import { LedgerViewer } from '../components/LedgerViewer';
 export const Explorer = () => {
   return (
     <>
-      <h1>Block explorer</h1>
-      <LedgerViewer />
+      <div className="content">
+        <h1 className="content__title">Block explorer</h1>
+        <LedgerViewer />
+      </div>
     </>
   );
 };

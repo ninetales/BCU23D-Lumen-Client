@@ -4,7 +4,10 @@ import { LoginForm } from '../components/LoginForm';
 export const Login = () => {
   return (
     <>
-      <LoginForm />
+      <div className="content">
+        <h1 className="content__title">Login</h1>
+        <LoginForm />
+      </div>
     </>
   );
 };

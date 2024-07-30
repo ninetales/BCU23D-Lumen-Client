@@ -4,8 +4,10 @@ import { MemPoolViewer } from '../components/MemPoolViewer';
 export const MemPool = () => {
   return (
     <>
-      <h1>MemPool</h1>
-      <MemPoolViewer />
+      <div className="content">
+        <h1 className="content__title">MemPool</h1>
+        <MemPoolViewer />
+      </div>
     </>
   );
 };

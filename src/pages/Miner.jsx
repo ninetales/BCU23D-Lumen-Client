@@ -4,8 +4,10 @@ import { BlockMiner } from '../components/BlockMiner';
 export const Miner = () => {
   return (
     <>
-      <h1>Miner</h1>
-      <BlockMiner />
+      <div className="content">
+        <h1 className="content__title">Miner</h1>
+        <BlockMiner />
+      </div>
     </>
   );
 };

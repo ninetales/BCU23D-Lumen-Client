@@ -14,6 +14,7 @@ export const LoginForm = () => {
     if (!validateForm(formData)) return;
 
     const response = await Auth.login(formData);
+
     if (response.success) {
       form.reset();
     }
@@ -25,7 +26,6 @@ export const LoginForm = () => {
 
   return (
     <>
-      <h3>Login</h3>
       <div className="card card-space">
         <form action="" onSubmit={(e) => formHandler(e)}>
           <label>

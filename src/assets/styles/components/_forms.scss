@@ -3,6 +3,12 @@ form {
     flex-direction: column;
     gap: 10px;
 
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+
     input[type="text"],
     input[type="password"],
     input[type="email"] {

@@ -22,6 +22,8 @@ nav {
                 text-decoration: none;
                 color: $textColor;
                 position: relative;
+                padding: 0 10px;
+                transition: all 0.2s ease;
 
                 &.active {
                     padding-left: 15px;
@@ -41,6 +43,11 @@ nav {
                     max-height: 30px;
                     margin-top: auto;
                     margin-bottom: auto;
+                }
+
+                &:hover {
+                    background-color: #f8f4fe;
+                    border-radius: 5px;
                 }
             }
         }
