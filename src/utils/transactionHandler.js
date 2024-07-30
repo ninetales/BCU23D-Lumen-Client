@@ -3,11 +3,13 @@
  * @return {Array} transactions
  */
 const transactionHandler = ({ transactions }) => {
-    console.log('transactions handler handling', transactions)
+
     return transactions.flatMap((transaction) => {
+
         delete transaction.outputMap[transaction.inputMap.address];
         const sender = transaction.inputMap.address;
         const timestamp = transaction.inputMap.timestamp;
+
         return Object.entries(transaction.outputMap).map(
             ([recipient, amount]) => ({
                 sender,
@@ -17,7 +19,10 @@ const transactionHandler = ({ transactions }) => {
                 reward: sender === 'reward-address' ? true : false
             })
         );
+
+
     });
+
 };
 
 export default transactionHandler;
