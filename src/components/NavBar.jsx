@@ -18,6 +18,9 @@ export const NavBar = () => {
               <NavLink to="/wallet">Wallet</NavLink>
             </li>
             <li>
+              <NavLink to="/transfers">Transfers</NavLink>
+            </li>
+            <li>
               <NavLink to="/explorer">Explorer</NavLink>
             </li>
             <li>

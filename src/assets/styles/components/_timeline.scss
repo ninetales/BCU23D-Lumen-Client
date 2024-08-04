@@ -1,0 +1,102 @@
+.timeline {
+    border-left: 1px dashed #b5b5b5;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-left: 25px;
+
+    &__block-info {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        box-shadow: 0px 16px 15px -10px rgba(105, 96, 215, .0944602);
+        padding: 0 15px;
+        border-radius: 15px;
+
+        &+.timeline__block-content {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: relative;
+        padding-left: 40px;
+
+
+        &__icon {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 16px 15px -10px rgba(105, 96, 215, .0944602);
+            background-color: #fff;
+            position: absolute;
+            left: -25px;
+            z-index: 1;
+        }
+
+    }
+}
+
+.block {
+
+    &-transfers {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__transfer {
+        padding: 15px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 15px;
+
+        &__data {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            li {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                span {
+                    word-break: break-all;
+                }
+            }
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+        }
+
+        &__reward {
+            background-color: #faf2dd;
+            color: #eab733;
+        }
+
+        &__debit {
+            background-color: #f9dddc;
+            color: #fc645d;
+        }
+
+        &__credit {
+            background-color: #e3f7e7;
+            color: #4ed85a;
+        }
+    }
+
+}

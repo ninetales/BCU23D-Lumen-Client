@@ -8,6 +8,7 @@ import { Explorer } from './pages/Explorer';
 import { Miner } from './pages/Miner';
 import { MemPool } from './pages/MemPool';
 import { Register } from './pages/Register';
+import { Transfers } from './pages/Transfers';
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: '/login', element: <Login /> },
       { path: '/wallet', element: <Wallet /> },
+      { path: '/transfers', element: <Transfers /> },
       { path: '/explorer', element: <Explorer /> },
       { path: '/miner', element: <Miner /> },
       { path: '/mempool', element: <MemPool /> },
