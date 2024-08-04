@@ -2,7 +2,6 @@
     border-left: 1px dashed #b5b5b5;
     display: flex;
     flex-direction: column;
-    gap: 50px;
     margin-left: 25px;
 
     &__block-info {
@@ -13,6 +12,7 @@
         box-shadow: 0px 16px 15px -10px rgba(105, 96, 215, .0944602);
         padding: 0 15px;
         border-radius: 15px;
+        font-weight: 500;
 
         &+.timeline__block-content {
             margin-bottom: 20px;
@@ -50,6 +50,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        padding-left: 30px;
     }
 
     &__transfer {

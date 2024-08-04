@@ -8,8 +8,12 @@ export const TransfersViewer = () => {
   const [blocks, setBlocks] = useState([]);
   const [toggledIndex, setToggledIndex] = useState(null);
 
-  const handleToggle = (index) => {
-    setToggledIndex(toggledIndex === index ? null : index);
+  const handleToggle = (blockIndex, index) => {
+    setToggledIndex(
+      toggledIndex === `${blockIndex}-${index}`
+        ? null
+        : `${blockIndex}-${index}`
+    );
   };
 
   const getIconComponent = (transactionType) => {
@@ -48,12 +52,12 @@ export const TransfersViewer = () => {
                   <Cube />
                 </i>
                 <div className="timeline__block-info">
-                  <h4>
+                  <span>
                     {' '}
                     {block.blockIndex === 1
                       ? 'Genesis Block'
                       : 'Block: ' + block.blockIndex}
-                  </h4>
+                  </span>
                 </div>
                 <div className="timeline__block-content">
                   <ul className="block-transfers" key={`${index}-transfers`}>
@@ -63,12 +67,16 @@ export const TransfersViewer = () => {
                           <li
                             key={index}
                             className={`block__transfer card ${
-                              toggledIndex === index ? 'toggled' : ''
+                              toggledIndex === `${block.blockIndex}-${index}`
+                                ? 'toggled'
+                                : ''
                             }`}
                           >
                             <div
                               className="block__transfer__header"
-                              onClick={() => handleToggle(index)}
+                              onClick={() =>
+                                handleToggle(block.blockIndex, index)
+                              }
                             >
                               <i
                                 className={`block__transfer__icon block__transfer__${transfer.transactionType}`}

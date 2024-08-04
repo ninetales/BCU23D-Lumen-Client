@@ -1,0 +1,19 @@
+.pills {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.pill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 80px;
+    padding: 0 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    color: #12419c;
+    text-decoration: none;
+}
