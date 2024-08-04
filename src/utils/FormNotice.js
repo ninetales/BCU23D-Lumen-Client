@@ -9,6 +9,9 @@ const formNotice = ({ form, message, type }) => {
         case 'success':
             notice.classList.add('notice', 'success');
             break;
+        case 'error':
+            notice.classList.add('notice', 'error');
+            break;
         default:
             notice.classList.add('notice');
     }

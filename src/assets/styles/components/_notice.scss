@@ -13,6 +13,13 @@
         color: #F44336;
     }
 
+
+    &.error {
+        background-color: #fff3f2;
+        box-shadow: inset 0px 0px 0px 1px #ffdbd8;
+        color: #F44336;
+    }
+
     &.success {
         background-color: #f2fff8;
         box-shadow: inset 0px 0px 0px 1px #aad8cf;

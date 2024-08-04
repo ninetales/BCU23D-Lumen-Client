@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Wallet from '../services/wallet.js';
 import validateForm from '../utils/ValidateForm.js';
 import formNotice from '../utils/FormNotice.js';
+import TokenHandler from '../utils/TokenHandler.js';
+import Auth from '../services/auth.js';
 
 export const Transfer = () => {
-  // const [response, setResponse] = React.useState({});
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    if (TokenHandler.getUserToken()) {
+      (async () => {
+        setUser(await Auth.user());
+      })();
+    }
+  }, []);
 
   const formHandler = (e) => {
     e.preventDefault();
@@ -12,6 +22,15 @@ export const Transfer = () => {
     const formData = Object.fromEntries(new FormData(form));
 
     if (!validateForm(formData)) return;
+
+    if (formData.recipient === user.wallet?.publicKey) {
+      formNotice({
+        form,
+        message: 'You cannot transfer to yourself',
+        type: 'error',
+      });
+      return;
+    }
 
     (async () => {
       const response = await Wallet.transfer({
