@@ -16,7 +16,7 @@ export const Wallet = () => {
   return (
     <>
       <div className="content">
-        <h3>{user.credentials?.name}</h3>
+        <h1 className="content__title">{user.credentials?.name}</h1>
         <WalletViewer />
         <Transfer />
       </div>

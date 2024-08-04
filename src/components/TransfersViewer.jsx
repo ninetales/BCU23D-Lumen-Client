@@ -63,15 +63,23 @@ export const TransfersViewer = () => {
                             </i>
                             <ul className="block__transfer__data">
                               <li>
-                                <span>Sender:</span>
-                                <span>{transfer.sender}</span>
-                              </li>
-                              <li>
-                                <span>Recipient:</span>
-                                <span>{transfer.recipient}</span>
-                              </li>
-                              <li>
-                                <span>Amount:</span>
+                                <span>
+                                  {(() => {
+                                    switch (transfer.transactionType) {
+                                      case 'debit':
+                                        return 'Transfered:';
+                                        break;
+                                      case 'credit':
+                                        return 'Recieved:';
+                                        break;
+                                      case 'reward':
+                                        return 'Rewarded for mining:';
+                                        break;
+                                      default:
+                                        return 'Transfer';
+                                    }
+                                  })()}
+                                </span>
                                 <span>
                                   {`${
                                     transfer.transactionType === 'debit'
@@ -82,7 +90,21 @@ export const TransfersViewer = () => {
                               </li>
                               <li>
                                 <span>Timestamp:</span>
-                                <span>{transfer.timestamp}</span>
+                                <span>
+                                  {new Date(transfer.timestamp).toUTCString()}
+                                </span>
+                              </li>
+                              <li>
+                                <span>Sender:</span>
+                                <span>
+                                  {transfer.sender !== 'reward-address'
+                                    ? transfer.sender
+                                    : 'Lumen Miner Reward'}
+                                </span>
+                              </li>
+                              <li>
+                                <span>Recipient:</span>
+                                <span>{transfer.recipient}</span>
                               </li>
                             </ul>
                           </li>
