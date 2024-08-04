@@ -54,14 +54,58 @@
 
     &__transfer {
         padding: 15px;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 15px;
+        display: flex;
+        flex-direction: column;
+
+        &.toggled {
+
+            .block__transfer__header__info::after {
+                transform: rotate(45deg);
+            }
+
+            .block__transfer__content {
+                height: auto;
+            }
+        }
+
+
+        &__header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 20px;
+            cursor: pointer;
+
+            &__info {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                &::after {
+                    content: '\002B';
+                    position: absolute;
+                    right: 15px;
+                    font-size: 30px;
+                    font-weight: 100;
+                    color: #b5b5b5;
+                    width: 18px;
+                    height: 18px;
+                    line-height: 15px;
+
+                    transition: transform .2s ease;
+                }
+            }
+        }
+
+        &__content {
+            height: 0;
+            overflow: hidden;
+        }
 
         &__data {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            padding-top: 15px;
 
             li {
                 display: flex;

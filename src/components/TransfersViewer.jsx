@@ -6,6 +6,11 @@ import { Cube, Coins, MoneySquare, HandCard } from 'iconoir-react';
 
 export const TransfersViewer = () => {
   const [blocks, setBlocks] = useState([]);
+  const [toggledIndex, setToggledIndex] = useState(null);
+
+  const handleToggle = (index) => {
+    setToggledIndex(toggledIndex === index ? null : index);
+  };
 
   const getIconComponent = (transactionType) => {
     switch (transactionType) {
@@ -55,28 +60,36 @@ export const TransfersViewer = () => {
                     {block.transfers.map((transfer, index) => {
                       return (
                         <>
-                          <li key={index} className="block__transfer card">
-                            <i
-                              className={`block__transfer__icon block__transfer__${transfer.transactionType}`}
+                          <li
+                            key={index}
+                            className={`block__transfer card ${
+                              toggledIndex === index ? 'toggled' : ''
+                            }`}
+                          >
+                            <div
+                              className="block__transfer__header"
+                              onClick={() => handleToggle(index)}
                             >
-                              {getIconComponent(transfer.transactionType)}
-                            </i>
-                            <ul className="block__transfer__data">
-                              <li>
+                              <i
+                                className={`block__transfer__icon block__transfer__${transfer.transactionType}`}
+                              >
+                                {getIconComponent(transfer.transactionType)}
+                              </i>
+                              <div className="block__transfer__header__info">
                                 <span>
                                   {(() => {
                                     switch (transfer.transactionType) {
                                       case 'debit':
-                                        return 'Transfered:';
+                                        return 'Transfered: ';
                                         break;
                                       case 'credit':
-                                        return 'Recieved:';
+                                        return 'Recieved: ';
                                         break;
                                       case 'reward':
-                                        return 'Rewarded for mining:';
+                                        return 'Mining Reward: ';
                                         break;
                                       default:
-                                        return 'Transfer';
+                                        return 'Transfer: ';
                                     }
                                   })()}
                                 </span>
@@ -87,26 +100,30 @@ export const TransfersViewer = () => {
                                       : ''
                                   }` + transfer.amount}
                                 </span>
-                              </li>
-                              <li>
-                                <span>Timestamp:</span>
-                                <span>
-                                  {new Date(transfer.timestamp).toUTCString()}
-                                </span>
-                              </li>
-                              <li>
-                                <span>Sender:</span>
-                                <span>
-                                  {transfer.sender !== 'reward-address'
-                                    ? transfer.sender
-                                    : 'Lumen Miner Reward'}
-                                </span>
-                              </li>
-                              <li>
-                                <span>Recipient:</span>
-                                <span>{transfer.recipient}</span>
-                              </li>
-                            </ul>
+                              </div>
+                            </div>
+                            <div className="block__transfer__content">
+                              <ul className="block__transfer__data">
+                                <li>
+                                  <span>Timestamp:</span>
+                                  <span>
+                                    {new Date(transfer.timestamp).toUTCString()}
+                                  </span>
+                                </li>
+                                <li>
+                                  <span>Sender:</span>
+                                  <span>
+                                    {transfer.sender !== 'reward-address'
+                                      ? transfer.sender
+                                      : 'Lumen Miner Reward'}
+                                  </span>
+                                </li>
+                                <li>
+                                  <span>Recipient:</span>
+                                  <span>{transfer.recipient}</span>
+                                </li>
+                              </ul>
+                            </div>
                           </li>
                         </>
                       );
