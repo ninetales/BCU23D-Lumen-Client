@@ -98,7 +98,9 @@ export const TransfersViewer = () => {
                                     transfer.transactionType === 'debit'
                                       ? '-'
                                       : ''
-                                  }` + transfer.amount}
+                                  }` +
+                                    transfer.amount +
+                                    ' LM'}
                                 </span>
                               </div>
                             </div>

@@ -3,6 +3,10 @@ import Auth from '../services/auth';
 import validateForm from '../utils/ValidateForm.js';
 import formNotice from '../utils/FormNotice.js';
 
+/**
+ * Note: when registering a new user, you have to do it from another node.
+ * This is because the wallets credentials (publickey, etc.) are setup upon starting the server.
+ */
 export const RegisterForm = () => {
   const formHandler = async (e) => {
     e.preventDefault();

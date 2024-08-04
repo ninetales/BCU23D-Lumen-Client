@@ -77,6 +77,7 @@
 
             &__info {
                 display: flex;
+                gap: 5px;
                 align-items: center;
                 position: relative;
 
@@ -104,16 +105,25 @@
         &__data {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            padding-top: 15px;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f4f8fd;
+            border-radius: 10px;
+            margin-top: 20px;
 
             li {
                 display: flex;
                 flex-direction: column;
-                gap: 5px;
+                gap: 7px;
+
+                span:first-child {
+                    font-weight: 500;
+                    color: #000;
+                }
 
                 span {
                     word-break: break-all;
+                    color: #333;
                 }
             }
         }
@@ -122,8 +132,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
             border-radius: 10px;
         }
 
